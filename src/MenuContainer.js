@@ -4,35 +4,38 @@ import Menu from "./Menu";
 
 class MenuContainer extends Component {
   constructor(props, context) {
-      super(props, context);
+    super(props, context);
 
-      this.state = {
-          visible: false
-      };
+    this.state = {
+      visible: false
+    };
 
-      this.handleMouseDown = this.handleMouseDown.bind(this);
-      this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   handleMouseDown(e) {
-      this.toggleMenu();
+    this.toggleMenu();
 
-      console.log("clicked");
-      e.stopPropagation();
+    console.log("clicked");
+    e.stopPropagation();
   }
 
   toggleMenu() {
-      this.setState({
-          visible: !this.state.visible
-      });
+    this.setState({
+      visible: !this.state.visible
+    });
   }
-  
-    render() {
+
+  render() {
+    console.log('Rendering: MenuContainer');
     return (
       <div>
-      <MenuButton handleMouseDown={this.handleMouseDown}/>
-      <Menu handleMouseDown={this.handleMouseDown}
-            menuVisibility={this.state.visible}/>
+        <MenuButton handleMouseDown={this.handleMouseDown} />
+        <Menu
+          handleMouseDown={this.handleMouseDown}
+          menuVisibility={this.state.visible}
+        />
         <div>
           <p>Can you spot the time that doesn't belong?</p>
           <ul>
